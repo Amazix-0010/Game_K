@@ -20,14 +20,17 @@ public class EnemyController : MonoBehaviour
 
     public GameObject bullet;
     public Transform firePoint;
-    public float fireRate;
-    public float fireCount;
+    public float fireRate, waitBetweenShots = 2f, TimeToshot = 1f;
+    private float fireCount, shotWaitCounter, shotTimeCounter;
 
 
     // Start is called before the first frame update
     void Start()
     {
         startPoint = transform.position;
+
+        shotTimeCounter = TimeToshot;
+        shotWaitCounter = waitBetweenShots;
     }
 
     // Update is called once per frame
@@ -42,7 +45,8 @@ public class EnemyController : MonoBehaviour
             {
                 chasing = true;
 
-                fireCount = 2f;
+                shotTimeCounter = TimeToshot;
+                shotWaitCounter = waitBetweenShots;
 
             }
 
@@ -79,13 +83,36 @@ public class EnemyController : MonoBehaviour
                 chaseCounter = keepChasingTime;
             }
 
-            fireCount -= Time.deltaTime;
-
-            if(fireCount<=0)
+            if (shotWaitCounter > 0)
             {
-                fireCount = fireRate;
+                shotWaitCounter -= Time.deltaTime;
 
-                Instantiate(bullet, firePoint.position, firePoint.rotation);
+                if(shotWaitCounter <= 0)
+                {
+                    shotTimeCounter = TimeToshot;
+                }
+            }
+            else
+            {
+
+                shotTimeCounter -= Time.deltaTime;
+
+                if (shotTimeCounter > 0)
+                {
+
+                    fireCount -= Time.deltaTime;
+
+                    if (fireCount <= 0)
+                    {
+                        fireCount = fireRate;
+
+                        Instantiate(bullet, firePoint.position, firePoint.rotation);
+                    }
+                }
+                else
+                {
+                    shotWaitCounter = waitBetweenShots;
+                }
             }
         }
     }
