@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     public bool chasing;
 
     public float distanceToChase = 10f, distanceToLose = 15f;
+    public float keepChasingTime = 5f;
+    public float chaseCounter;
 
     private Vector3 targetPoint, startPoint;
 
@@ -38,6 +40,17 @@ public class EnemyController : MonoBehaviour
                 chasing = true;
 
             }
+
+            if (chaseCounter > 0)
+            {
+                chaseCounter -= Time.deltaTime;
+
+                if (chaseCounter <= 0)
+                {
+                    agent.destination = startPoint;
+                }
+
+            }
         }
         else
         {
@@ -51,7 +64,7 @@ public class EnemyController : MonoBehaviour
                 chasing = false;
 
 
-                agent.destination = startPoint;
+                chaseCounter = keepChasingTime;
             }
         }
     }
