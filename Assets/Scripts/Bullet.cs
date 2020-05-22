@@ -43,7 +43,7 @@ public class Bullet : MonoBehaviour
             other.gameObject.GetComponent<EnemyHealth>().DamageEnemy(damage);
         }
 
-        if(other.gameObject.tag == "Player " && damagePlayer == true)
+        if(other.gameObject.tag == "Player" && damagePlayer)
         {
             Debug.Log("Zásah hráče " + transform.position);
         }
