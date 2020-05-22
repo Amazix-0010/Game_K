@@ -18,6 +18,10 @@ public class EnemyController : MonoBehaviour
 
     public NavMeshAgent agent;
 
+    public GameObject bullet;
+    public Transform firePoint;
+    public float fireRate;
+    public float fireCount;
 
 
     // Start is called before the first frame update
@@ -37,6 +41,8 @@ public class EnemyController : MonoBehaviour
             if (Vector3.Distance(transform.position,targetPoint) < distanceToChase)
             {
                 chasing = true;
+
+                fireCount = 2f;
 
             }
 
@@ -71,6 +77,15 @@ public class EnemyController : MonoBehaviour
 
 
                 chaseCounter = keepChasingTime;
+            }
+
+            fireCount -= Time.deltaTime;
+
+            if(fireCount<=0)
+            {
+                fireCount = fireRate;
+
+                Instantiate(bullet, firePoint.position, firePoint.rotation);
             }
         }
     }
