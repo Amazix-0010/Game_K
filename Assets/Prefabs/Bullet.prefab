@@ -114,6 +114,8 @@ MonoBehaviour:
   bulletparticle: {fileID: 3903046768367738064, guid: 02ef231628913a842a0a47bf7bfcd872,
     type: 3}
   damage: 10
+  damageEnemy: 1
+  damagePlayer: 0
 --- !u!54 &7425409902868473693
 Rigidbody:
   m_ObjectHideFlags: 0

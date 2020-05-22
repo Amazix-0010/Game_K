@@ -72,10 +72,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 46864180dcc24744b8ce00c847994b9c, type: 2}
+    - target: {fileID: 4178859311477818527, guid: 97ae2ad73de6d324dada5e4169a747a1,
+        type: 3}
+      propertyPath: damageEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4178859311477818527, guid: 97ae2ad73de6d324dada5e4169a747a1,
+        type: 3}
+      propertyPath: damagePlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6327224840305134525, guid: 97ae2ad73de6d324dada5e4169a747a1,
         type: 3}
       propertyPath: m_Name
-      value: Enemy Bullet
+      value: Enemy Bullet Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 97ae2ad73de6d324dada5e4169a747a1, type: 3}
