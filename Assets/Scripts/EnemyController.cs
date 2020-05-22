@@ -108,6 +108,8 @@ public class EnemyController : MonoBehaviour
 
                         Instantiate(bullet, firePoint.position, firePoint.rotation);
                     }
+
+                    agent.destination = transform.position;
                 }
                 else
                 {
