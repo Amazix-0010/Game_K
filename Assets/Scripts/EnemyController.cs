@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
 
     public bool chasing;
 
-    public float distanceToChase = 10f, distanceToLose = 15f;
+    public float distanceToChase = 10f, distanceToLose = 15f, distanceToStop = 2;
     public float keepChasingTime = 5f;
     public float chaseCounter;
 
@@ -57,7 +57,14 @@ public class EnemyController : MonoBehaviour
             // transform.LookAt(targetPoint);
             // theRB.velocity = transform.forward * moveSpeed;
 
-            agent.destination = targetPoint;
+            if (Vector3.Distance(transform.position, targetPoint) > distanceToStop)
+            {
+                agent.destination = targetPoint;
+            }
+            else
+            {
+                agent.destination = transform.position;
+            }
 
             if (Vector3.Distance(transform.position,targetPoint) > distanceToLose)
             {
