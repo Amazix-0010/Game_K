@@ -5,9 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
-    public float moveSpeed;
-
-    public Rigidbody theRB;
+   // public float moveSpeed;
+   // public Rigidbody theRB;
 
     public bool chasing;
 
